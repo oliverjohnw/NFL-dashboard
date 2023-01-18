@@ -34,6 +34,9 @@ def write_json(data: dict, *args, indent:int = 4, **kwargs) -> None:
         path for the file to be written to
     kwargs : dict
         additional keyword arguments to json.dump
+
+    Returns
+    -------
     """
     out_path = osp.join(*args)
 
