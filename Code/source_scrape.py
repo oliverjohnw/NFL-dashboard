@@ -10,7 +10,6 @@ def parse_args():
     """Function to parse command line arguments"""
 
     parser = argparse.ArgumentParser()
-    # FIXME: switch this argument to an optional 
     parser.add_argument('-o', '--out-path', type=str, default='out.json', help='Path to save source info to')
     args = parser.parse_args()
 
