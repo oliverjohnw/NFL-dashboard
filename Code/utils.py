@@ -1,5 +1,27 @@
 import json
 import os.path as osp
+import pathlib
+
+def read_json(*paths) -> dict:
+    """
+    Function to read a simple json file
+
+    Parameters
+    ----------
+    paths : list[str]
+        path to the file of interest
+    
+    Returns
+    -------
+    data : dict[str, Any]
+    """
+    path = pathlib.Path().joinpath(*paths)
+
+    with open(path, 'r') as fp:
+        data = json.load(fp)
+
+    return data
+
 
 def write_json(data: dict, *args, indent:int = 4, **kwargs) -> None:
     """
