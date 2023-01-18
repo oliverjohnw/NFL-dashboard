@@ -36,6 +36,8 @@ def main():
 
     # scrape NFL information
     logging.info('Scraping Source Information')
+    # TODO: generalize the data request
+    # Strategy pattern? Think about what needs to be returned from a data request
     source = requests.get("https://www.bovada.lv/services/sports/event/v2/events/A/description/football/nfl").json()
     source_data = source[0]
 
