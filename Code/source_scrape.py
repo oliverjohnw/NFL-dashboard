@@ -1,9 +1,11 @@
 import argparse
 import logging
 import requests
+import pandas as pd
 
 # local imports
 from utils import write_json
+from format_helpers import parse_matchup_info
 
 def parse_args():
     """Function to parse command line arguments"""
@@ -36,11 +38,12 @@ def main():
     # scrape NFL information
     logging.info('Scraping Source Information')
     source = requests.get("https://www.bovada.lv/services/sports/event/v2/events/A/description/football/nfl").json()
-    source_data = source[0]
+    source_data = source[0]['events']
+    source_data = pd.DataFrame(source_data)
 
     # save source info
     logging.info("Saving Source Information")
-    write_json(source_data, args.source_output_path)
+    source_data.to_csv(args.source_output_path)
     logging.info(" ")
 
     return
