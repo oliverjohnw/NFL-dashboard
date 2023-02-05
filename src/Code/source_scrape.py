@@ -31,7 +31,8 @@ def main():
         format=formatstr, 
         datefmt=datestr, 
         handlers=[
-            logging.FileHandler('./logs/source_download.log'),
+            # NOTE: think about where the logs should be stored ...
+            logging.FileHandler(f'./logs/source_download_{now}.log'),
             logging.StreamHandler()
             ]
         )

@@ -21,3 +21,6 @@ class Host:
     def get(self, *args, **kwargs) -> pd.DataFrame:
         """Function to get data from the host and process it into a dataframe"""
 
+
+class NoDataError(Exception):
+    pass
