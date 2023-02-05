@@ -1,4 +1,4 @@
-import dataclass
+import dataclasses
 import pandas as pd
 import requests
 
@@ -9,7 +9,7 @@ from ._base_ import Host
 # also maybe try to find a way to validate that the string supplied is a valid url?
 nfl_url = "https://www.bovada.lv/services/sports/event/v2/events/A/description/football/nfl"
 
-@dataclass
+@dataclasses.dataclass
 class NFLHost(Host):
     url: str = nfl_url
 
