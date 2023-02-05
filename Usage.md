@@ -20,3 +20,14 @@ There is currently one supported script (Code/source_scrape.py) which can be run
 python -m scrape_data
 ```
 
+## Note on logging
+
+Logging is supported in python and is useful. Remember there is shell redirection which allows sending the output and error info from the script to a file at runtime. I am not sure which is the best method nor the performance of either. 
+
+Here is an example of shell redirection:
+
+```
+python -m source_scrape > thing.txt 2>&1
+```
+
+The command above will send all the info (output and error) to a text file.txt. The logging info will still be written to the file configured in python as well in this case. 
