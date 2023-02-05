@@ -2,9 +2,11 @@ import argparse
 import datetime
 import logging
 import requests
+import pandas as pd
 
 # local imports
 from utils import write_json
+from format_helpers import parse_matchup_info
 
 def parse_args():
     """Function to parse command line arguments"""
@@ -40,12 +42,14 @@ def main():
     # TODO: generalize the data request
     # Strategy pattern? Think about what needs to be returned from a data request
     source = requests.get("https://www.bovada.lv/services/sports/event/v2/events/A/description/football/nfl").json()
-    source_data = source[0]
+    source_data = source[0]['events']
+    source_data = pd.DataFrame(source_data)
 
     # save source info
-    logging.info(f"Saving Source Information")
-    write_json(source_data, args.out_path)
+    logging.info("Saving Source Information")
+    source_data.to_csv(args.source_output_path)
     logging.info("Download Finished")
+
 
     return
 
