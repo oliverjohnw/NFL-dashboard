@@ -44,20 +44,3 @@ def write_json(data: dict, *args, indent:int = 4, **kwargs) -> None:
         json.dump(data, fp, indent=indent, **kwargs)
 
     return
-
-def read_json(opt_path):
-    """
-    Function to load a json file as a dictionary
-    Parameters
-    ----------
-    args: List[str]
-        input path to the json file to be read, separate arguments will be combined in to a single path: ie foo, bar, test.json -> foo/bar/test.json    
-    Returns
-    -------
-    data: Dict[str, ?]
-        json file as a dictionary
-    """
-    path = osp.join(opt_path)
-    with open(path, 'r') as f:
-        data = json.load(f)
-    return data
