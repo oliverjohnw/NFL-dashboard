@@ -7,6 +7,7 @@ import pandas as pd
 # local imports
 from utils import write_json
 from format_helpers import parse_matchup_info
+from hosts.bovata import NFLHost
 
 def parse_args():
     """Function to parse command line arguments"""
@@ -39,11 +40,11 @@ def main():
 
     # scrape NFL information
     logging.info(f'Scraping Source Information for {now}')
-    # TODO: generalize the data request
-    # Strategy pattern? Think about what needs to be returned from a data request
-    source = requests.get("https://www.bovada.lv/services/sports/event/v2/events/A/description/football/nfl").json()
-    source_data = source[0]['events']
-    source_data = pd.DataFrame(source_data)
+    
+    # create, build and run get data for the host
+    host = NFLHost()
+    host.build()
+    source_data = host.get()
 
     # save source info
     logging.info("Saving Source Information")
