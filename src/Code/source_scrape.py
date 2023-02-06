@@ -43,6 +43,8 @@ def main():
     logging.info(f'Scraping Source Information for {now}')
     
     # create, build and run get data for the host
+    # TODO: implement a factory pattern here to allow for easier creation of different types of hosts ... 
+    # link to factory pattern here: https://realpython.com/factory-method-python/#introducing-factory-method
     host = NFLHost()
     host.build()
     source_data = host.get()

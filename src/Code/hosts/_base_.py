@@ -8,6 +8,10 @@ The interface will contain two methods:
 
 1. build: this method will call any setup require before fetching data
 2. get: this method will fetch data from somewhere and should return a dataframe
+
+More Formally this is called the Strategy pattern ... as all objects will have the same interface and can be loaded into the main script and
+__used__ in the same way
+
 """
 
 # NOTE: since this is a fairly simple api, it can probably be done via protocol but don't worry about it for now ...
