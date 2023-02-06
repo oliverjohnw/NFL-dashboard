@@ -32,7 +32,7 @@ class NFLHost(Host):
             raise NoDataError('No Data Recieved from request')
 
         final_data = pd.DataFrame(self.process_data(result.json()))
-        return raw_data
+        return final_data 
 
 
 
